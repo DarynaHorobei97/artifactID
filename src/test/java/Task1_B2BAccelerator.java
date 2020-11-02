@@ -24,7 +24,7 @@ public class Task1_B2BAccelerator {
         ChromeOptions options = new ChromeOptions();
         options.addArguments("--ignore-certificate-errors");
         System.setProperty("webdriver.chrome.driver", "C:\\Users\\Daryna_Horobei\\Downloads\\chromedriver_win32_86\\chromedriver.exe");
-        ChromeDriver driver = new ChromeDriver(options);
+        driver = new ChromeDriver(options);
         driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
         driver.manage().window().maximize();
         driver.get(url);
