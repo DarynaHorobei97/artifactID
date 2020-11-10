@@ -13,7 +13,7 @@ public class Task4 {
 
     @Before
     public void setUp() {
-        System.setProperty("webdriver.gecko.driver", "C:\\Users\\Daryna_Horobei\\Downloads\\geckodriver-v0.27.0-win64\\geckodriver.exe");
+        System.setProperty("webdriver.gecko.driver", System.getProperty("user.dir") + "\\src\\main\\resources\\drivers\\geckodriver.exe");
         driver = new FirefoxDriver();
         driver.manage().window().maximize();
         driver.get("https://www.lacoste.ua/");

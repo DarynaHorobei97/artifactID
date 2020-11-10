@@ -1,6 +1,4 @@
-import org.junit.jupiter.api.AfterEach;
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.*;
 import org.junit.platform.runner.JUnitPlatform;
 import org.junit.runner.RunWith;
 import org.openqa.selenium.By;
@@ -9,12 +7,20 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 
-import java.util.List;
 import java.util.concurrent.TimeUnit;
 
+import static org.assertj.core.api.Assertions.*;
+import static org.assertj.core.api.SoftAssertions.assertSoftly;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-@RunWith(JUnitPlatform.class)
+import org.junit.runner.RunWith;
+import org.junit.runners.Suite;
+
+@RunWith(Suite.class)
+@Suite.SuiteClasses({
+        Task1_B2BAccelerator.class
+})
+
 public class Task1_B2BAccelerator {
 
     private WebDriver driver;
@@ -25,9 +31,10 @@ public class Task1_B2BAccelerator {
 
     @BeforeEach
     public void setUp() {
+
         ChromeOptions options = new ChromeOptions();
         options.addArguments("--ignore-certificate-errors");
-        System.setProperty("webdriver.chrome.driver", "C:\\Users\\Daryna_Horobei\\Downloads\\chromedriver_win32_86\\chromedriver.exe");
+        System.setProperty("webdriver.chrome.driver", System.getProperty("user.dir") + "\\src\\main\\resources\\drivers\\chromedriver.exe");
         driver = new ChromeDriver(options);
         driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
         driver.manage().window().maximize();
@@ -48,8 +55,12 @@ public class Task1_B2BAccelerator {
         WebElement total = driver.findElement(By.xpath("//div[@class='col-xs-6 cart-totals-right text-right grand-total']"));
         WebElement checkout1 = driver.findElement(By.xpath("//div[@class='cart__actions']//button[contains( text(),'Check')]"));
 
-        assertEquals(subTotal.getText(), "$99.85");
-        assertEquals(total.getText(), "$99.85");
+
+        Assertions.assertAll("Total prices do not equal",
+                () -> assertEquals("$99.85", subTotal.getText()),
+                () -> assertEquals("$99.85", total.getText())
+        );
+
 
         checkout1.click();
         WebElement guestEmail = driver.findElement(By.xpath("//*[@id=\"guest.email\"]"));
@@ -62,9 +73,14 @@ public class Task1_B2BAccelerator {
         WebElement total1 = driver.findElement(By.xpath("//div[@class='totals']/span"));
         WebElement tax = driver.findElement(By.xpath("//div[@class='realTotals']/p"));
 
-        assertEquals("$99.85", subtotal1.getText());
-        assertEquals("$104.84", total1.getText());
-        assertEquals("Your order includes $4.99 tax.", tax.getText());
+
+        Assertions.assertAll("Total prices do not equal",
+                () -> assertEquals("$99.85", subtotal1.getText()),
+                () -> assertEquals("$104.84", total1.getText()),
+                () -> assertEquals("Your order includes $4.99 tax.", tax.getText())
+        );
+
+
     }
 
 
