@@ -84,30 +84,6 @@ public class Task1_B2BAccelerator {
 
     }
 
-
-//    @Test
-//    public void locatorsLocation() {
-//        WebElement logo = driver.findElement(By.xpath("//img[@title='hybris Accelerator']"));
-//        WebElement SignOrRegisterButton = driver.findElement(By.xpath("//a[contains( text(),'Sign')]"));
-//        WebElement searchField = driver.findElement(By.xpath("//*[@id='js-site-search-input']"));
-//        List<WebElement> navigationMenu = driver.findElements(By.xpath("//ul[@class='nav__links nav__links--products js-offcanvas-links']//a"));
-//        WebElement banner = driver.findElement(By.xpath("//img[@class='js-responsive-image']"));
-//    }
-//
-//    @Test
-//    public void searchAndAddToCartCamelio() {
-//        WebElement searchField = driver.findElement(By.xpath(pathForSearchField));
-//        searchField.sendKeys("camileo");
-//        WebElement searchButton = driver.findElement(By.xpath(pathForSearchButton));
-//        searchButton.click();
-//        WebElement addToCartButton = driver.findElement(By.xpath(pathForAddToCartButton));
-//        addToCartButton.click();
-//        WebElement continueShopButton = driver.findElement(By.xpath("//a[contains(text(),'Continue Shopping')]"));
-//        continueShopButton.click();
-//        WebElement camelioLink = driver.findElement(By.xpath("//a[@href='/yacceleratorstorefront/electronics/en/Open-Catalogue/Cameras/Hand-held-Camcorders/Camileo-S10-EU/p/1776948']"));
-//        camelioLink.click();
-//    }
-
     @AfterEach
     public void tearDown() {
         driver.quit();
