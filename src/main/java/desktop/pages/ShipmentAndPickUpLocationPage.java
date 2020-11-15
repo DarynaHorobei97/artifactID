@@ -16,18 +16,19 @@ public class ShipmentAndPickUpLocationPage extends AbstractPage {
         super(driver);
     }
 
-    public By getSubtotalOnShipmentAndPickUpLocationPage() {
-        return subtotalOnShipmentAndPickUpLocationPage;
+    public String getSubtotalOnShipmentAndPickUpLocation() {
+        return driver.findElement(subtotalOnShipmentAndPickUpLocationPage).getText();
     }
 
 
-    public By getTotalOnShipmentAndPickUpLocationPage() {
-        return totalOnShipmentAndPickUpLocationPage;
+    public String getTotalOnShipmentAndPickUpLocation() {
+
+        return driver.findElement(totalOnShipmentAndPickUpLocationPage).getText();
     }
 
 
-    public By getTax() {
-        return tax;
+    public String getTax() {
+        return driver.findElement(tax).getText();
     }
 
 

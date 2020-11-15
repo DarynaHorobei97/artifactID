@@ -12,9 +12,9 @@ public abstract class BaseTest {
 
     protected static WebDriver driver;
 
-    private String url = "https://ecsc00a03ccd.epam.com:9002/yacceleratorstorefront/?site=electronics";
+   protected String url = "https://ecsc00a03ccd.epam.com:9002/yacceleratorstorefront/?site=electronics";
 
-    @BeforeEach
+    @Before
     public void setUp() {
 
         ChromeOptions options = new ChromeOptions();
@@ -26,7 +26,7 @@ public abstract class BaseTest {
         driver.get(url);
     }
 
-    @AfterEach
+    @After
     public void tearDown() {
         //closeWebDriver();
         driver.quit();

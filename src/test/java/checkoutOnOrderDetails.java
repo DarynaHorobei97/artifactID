@@ -8,26 +8,30 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class checkoutOnOrderDetails extends BaseTest {
 
-    private MainPage mainPage;
-    private OrderDetailsPage orderDetailsPage;
+    private MainPage page;
 
-    @BeforeEach
+
+    @Before
     public void setPage() {
-        this.mainPage = new MainPage(driver);
-        this.orderDetailsPage = new OrderDetailsPage(driver);
+        page = new MainPage(driver);
     }
 
 
     @Test
     public void checkTotalPricesOnOrderDetailsTest() {
 
-        mainPage.searchProductByCode("1934793")
+        String subTotalActRes = page.searchProductByCode("1934793")
                 .addProductToCart()
-                .goToOrderDetailsPage();
+                .goToOrderDetailsPage().getSubTotalOnOrderDetails();
+
+        String totalActRes = page.searchProductByCode("1934793")
+                .addProductToCart()
+                .goToOrderDetailsPage().getTotalOnOrderDetails();
+
 
         Assertions.assertAll("Total prices do not equal",
-                () -> assertEquals("$99.85", orderDetailsPage.getSubTotalOnOrderDetails()),
-                () -> assertEquals("$99.85", orderDetailsPage.getTotalOnOrderDetails())
+                () -> assertEquals("$99.85", subTotalActRes),
+                () -> assertEquals("$99.85", totalActRes)
         );
 
     }

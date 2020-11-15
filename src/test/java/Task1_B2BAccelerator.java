@@ -27,6 +27,7 @@ public class Task1_B2BAccelerator {
     private String url = "https://ecsc00a03ccd.epam.com:9002/yacceleratorstorefront/?site=electronics";
     private String pathForSearchField = "//input[@id='js-site-search-input']";
     private String pathForSearchButton = "//button[@type='submit']";
+
     private String pathForAddToCartButton = "//button[@class='btn btn-primary btn-block glyphicon glyphicon-shopping-cart js-enable-btn']";
 
     @BeforeEach
