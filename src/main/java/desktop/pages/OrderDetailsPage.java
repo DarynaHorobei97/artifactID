@@ -20,11 +20,56 @@ public class OrderDetailsPage extends AbstractPage {
         return new RegisterPage(driver);
     }
 
-    public String getSubTotalOnOrderDetails() {
+    /*
+ Page Factory Pattern implementation:
+
+   @FindBy(xpath = "//div[@class='col-xs-6 cart-totals-right text-right']")
+    private WebElement subTotalOnOrderDetails;
+
+    @FindBy(xpath = "//div[@class='col-xs-6 cart-totals-right text-right grand-total']")
+    private WebElement totalOnOrderDetails;
+
+     @FindBy(xpath = "//div[@class='cart__actions']//button[contains( text(),'Check')]")
+    private WebElement checkoutInOrderDetails;
+
+
+    public OrderDetailsPage(WebDriver driver) {
+        //super(driver);
+        //  PageFactory.initElements(this.driver, this);
+    }
+
+    public RegisterPage goToRegisterPage() {
+        checkoutInOrderDetails.click();
+        return new RegisterPage(driver);
+    }
+     public String getSubTotalOnOrderDetails() {
         return driver.findElement(subTotalOnOrderDetails).getText();
     }
 
     public String getTotalOnOrderDetails() {
+        return driver.findElement(totalOnOrderDetails).getText();
+    }
+
+    public String getSubTotalOnOrderDetails() {
+        return subTotalOnOrderDetails.getText();
+    }
+
+    public String getTotalOnOrderDetails() {
+        return totalOnOrderDetails.getText();
+    }
+
+
+
+  */
+
+
+    public String getSubTotalOnOrderDetails() {
+
+        return driver.findElement(subTotalOnOrderDetails).getText();
+    }
+
+    public String getTotalOnOrderDetails() {
+
         return driver.findElement(totalOnOrderDetails).getText();
     }
 

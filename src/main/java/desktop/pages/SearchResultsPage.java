@@ -9,6 +9,28 @@ public class SearchResultsPage extends AbstractPage {
 
     private final By addToCartButton = By.xpath("//button[@class='btn btn-primary btn-block glyphicon glyphicon-shopping-cart js-enable-btn']");
 
+    /*
+ Page Factory Pattern implementation:
+
+   @FindBy(xpath = "//button[@class='btn btn-primary btn-block glyphicon glyphicon-shopping-cart js-enable-btn']")
+    private WebElement addToCartButton;
+
+
+    public SearchResultsPage(WebDriver driver) {
+        //super(driver);
+        //  PageFactory.initElements(this.driver, this);
+    }
+     public AddedtoYourShoppingCartForm addProductToCart() {
+        addToCartButton.click();
+        return new AddedtoYourShoppingCartForm(driver);
+    }
+
+
+
+  */
+
+
+
     public SearchResultsPage(WebDriver driver) {
         super(driver);
     }

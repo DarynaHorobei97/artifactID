@@ -11,6 +11,38 @@ public class ShipmentAndPickUpLocationPage extends AbstractPage {
     private final By subtotalOnShipmentAndPickUpLocationPage = By.xpath("//div[@class='subtotal']/span");
     private final By totalOnShipmentAndPickUpLocationPage = By.xpath("//div[@class='totals']/span");
 
+ /*
+ Page Factory Pattern implementation:
+
+   @FindBy(xpath = "//div[@class='realTotals']/p")
+    private WebElement tax;
+
+       @FindBy(xpath = "//div[@class='subtotal']/span")
+    private WebElement subtotalOnShipmentAndPickUpLocationPage;
+
+       @FindBy(xpath = "//div[@class='totals']/span")
+    private WebElement totalOnShipmentAndPickUpLocationPage;
+
+
+    public ShipmentAndPickUpLocationPage(WebDriver driver) {
+        //super(driver);
+        //  PageFactory.initElements(this.driver, this);
+    }
+public String getSubtotalOnShipmentAndPickUpLocation() {
+        return subtotalOnShipmentAndPickUpLocationPage.getText();
+    }
+
+    public String getTotalOnShipmentAndPickUpLocation() {
+
+        return totalOnShipmentAndPickUpLocationPage.getText();
+    }
+
+    public String getTax() {
+        return tax.getText();
+    }
+
+  */
+
 
     public ShipmentAndPickUpLocationPage(WebDriver driver) {
         super(driver);
@@ -25,7 +57,6 @@ public class ShipmentAndPickUpLocationPage extends AbstractPage {
 
         return driver.findElement(totalOnShipmentAndPickUpLocationPage).getText();
     }
-
 
     public String getTax() {
         return driver.findElement(tax).getText();
