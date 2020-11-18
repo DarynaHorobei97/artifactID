@@ -1,3 +1,7 @@
+package stepsDefs;
+
+import io.cucumber.java.en.And;
+import io.cucumber.java.en.Given;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.jupiter.api.AfterEach;
@@ -8,15 +12,14 @@ import org.openqa.selenium.chrome.ChromeOptions;
 
 import java.util.concurrent.TimeUnit;
 
-public abstract class BaseTest {
+public class OpenMainPage {
 
-    protected static WebDriver driver;
+    public static WebDriver driver;
+    protected String url = "https://ecsc00a03ccd.epam.com:9002/yacceleratorstorefront/?site=electronics";
 
-   protected String url = "https://ecsc00a03ccd.epam.com:9002/yacceleratorstorefront/?site=electronics";
 
-    @Before
-    public void setUp() {
-
+    @Given("I am anonymous customer and I open main page")
+    public void iAmAnonymousCustomerAndIOpenMainPage() {
         ChromeOptions options = new ChromeOptions();
         options.addArguments("--ignore-certificate-errors");
         System.setProperty("webdriver.chrome.driver", System.getProperty("user.dir") + "\\src\\main\\java\\resources\\drivers\\chromedriver.exe");
@@ -25,11 +28,4 @@ public abstract class BaseTest {
         driver.manage().window().maximize();
         driver.get(url);
     }
-
-    @After
-    public void tearDown() {
-        //closeWebDriver();
-        driver.quit();
-    }
-
 }

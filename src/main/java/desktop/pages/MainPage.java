@@ -1,16 +1,21 @@
 package desktop.pages;
 
 import abstractClasses.page.AbstractPage;
+import io.cucumber.java.en.And;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.support.FindBy;
+
+import java.util.concurrent.TimeUnit;
 
 public class MainPage extends AbstractPage {
     public MainPage(WebDriver driver) {
         super(driver);
     }
-
+    protected String url = "https://ecsc00a03ccd.epam.com:9002/yacceleratorstorefront/?site=electronics";
     private final By logo = By.xpath("//img[@title='hybris Accelerator']");
     private final By SignOrRegisterButton = By.xpath("//*[@id='js-site-search-input']");
     private final By searchField = By.id("js-site-search-input");
@@ -48,6 +53,7 @@ public class MainPage extends AbstractPage {
     }
 
   */
+
 
 
     public SearchResultsPage searchProductByCode(String product) {
