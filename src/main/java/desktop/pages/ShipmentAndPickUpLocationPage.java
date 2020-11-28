@@ -5,6 +5,8 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
+import static driver.SingletonDriver.getDriver;
+
 public class ShipmentAndPickUpLocationPage extends AbstractPage {
 
     private final By tax = By.xpath("//div[@class='realTotals']/p");
@@ -44,23 +46,22 @@ public String getSubtotalOnShipmentAndPickUpLocation() {
   */
 
 
-    public ShipmentAndPickUpLocationPage(WebDriver driver) {
-        super(driver);
-    }
-
     public String getSubtotalOnShipmentAndPickUpLocation() {
-        return driver.findElement(subtotalOnShipmentAndPickUpLocationPage).getText();
+        return getDriver().findElement(subtotalOnShipmentAndPickUpLocationPage).getText();
     }
 
 
     public String getTotalOnShipmentAndPickUpLocation() {
 
-        return driver.findElement(totalOnShipmentAndPickUpLocationPage).getText();
+        return getDriver().findElement(totalOnShipmentAndPickUpLocationPage).getText();
     }
 
     public String getTax() {
-        return driver.findElement(tax).getText();
+        return getDriver().findElement(tax).getText();
     }
 
+    public void closeBrowser() {
+        getDriver().quit();
+    }
 
 }

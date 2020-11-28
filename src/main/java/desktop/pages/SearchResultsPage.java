@@ -5,9 +5,12 @@ import desktop.fragments.AddedtoYourShoppingCartForm;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
+import static driver.SingletonDriver.getDriver;
+
 public class SearchResultsPage extends AbstractPage {
 
     private final By addToCartButton = By.xpath("//button[@class='btn btn-primary btn-block glyphicon glyphicon-shopping-cart js-enable-btn']");
+
 
     /*
  Page Factory Pattern implementation:
@@ -31,12 +34,10 @@ public class SearchResultsPage extends AbstractPage {
 
 
 
-    public SearchResultsPage(WebDriver driver) {
-        super(driver);
-    }
+
 
     public AddedtoYourShoppingCartForm addProductToCart() {
-        driver.findElement(addToCartButton).click();
-        return new AddedtoYourShoppingCartForm(driver);
+        getDriver().findElement(addToCartButton).click();
+        return new AddedtoYourShoppingCartForm();
     }
 }

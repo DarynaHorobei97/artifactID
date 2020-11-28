@@ -5,10 +5,9 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
+import static driver.SingletonDriver.getDriver;
+
 public class RegisterPage extends AbstractPage {
-    public RegisterPage(WebDriver driver) {
-        super(driver);
-    }
 
     private final By guestEmailField = By.xpath("//*[@id=\"guest.email\"]");
     private final By confirmEmailField = By.xpath("//*[@id=\"guest.confirm.email\"]");
@@ -45,10 +44,10 @@ public class RegisterPage extends AbstractPage {
 
 
     public ShipmentAndPickUpLocationPage loginAsGuest(String email) {
-        driver.findElement(guestEmailField).sendKeys(email);
-        driver.findElement(confirmEmailField).sendKeys(email);
-        driver.findElement(checkOutAsGuestButton).click();
-        return new ShipmentAndPickUpLocationPage(driver);
+        getDriver().findElement(guestEmailField).sendKeys(email);
+        getDriver().findElement(confirmEmailField).sendKeys(email);
+        getDriver().findElement(checkOutAsGuestButton).click();
+        return new ShipmentAndPickUpLocationPage();
     }
 
 }

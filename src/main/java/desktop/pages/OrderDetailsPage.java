@@ -5,10 +5,9 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
+import static driver.SingletonDriver.getDriver;
+
 public class OrderDetailsPage extends AbstractPage {
-    public OrderDetailsPage(WebDriver driver) {
-        super(driver);
-    }
 
     private final By subTotalOnOrderDetails = By.xpath("//div[@class='col-xs-6 cart-totals-right text-right']");
 
@@ -16,8 +15,8 @@ public class OrderDetailsPage extends AbstractPage {
     private final By checkoutInOrderDetails = By.xpath("//div[@class='cart__actions']//button[contains( text(),'Check')]");
 
     public RegisterPage goToRegisterPage() {
-        driver.findElement(checkoutInOrderDetails).click();
-        return new RegisterPage(driver);
+        getDriver().findElement(checkoutInOrderDetails).click();
+        return new RegisterPage();
     }
 
     /*
@@ -65,12 +64,12 @@ public class OrderDetailsPage extends AbstractPage {
 
     public String getSubTotalOnOrderDetails() {
 
-        return driver.findElement(subTotalOnOrderDetails).getText();
+        return getDriver().findElement(subTotalOnOrderDetails).getText();
     }
 
     public String getTotalOnOrderDetails() {
 
-        return driver.findElement(totalOnOrderDetails).getText();
+        return getDriver().findElement(totalOnOrderDetails).getText();
     }
 
 
