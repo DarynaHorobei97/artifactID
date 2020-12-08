@@ -20,7 +20,7 @@ public class SearchProductStep{
 
 
 
-    @When("I search for 1934793 product and I am redirected to search results page")
+    @When("I search for 1934793 product(?:s|) and I am redirected to ([\\s\\w]+page$)")
     public void iSearchForProductAndIAmRedirectedToSearchResultsPage() {
         page.searchProductByCode("1934793");
     }
