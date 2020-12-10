@@ -1,18 +1,11 @@
 package stepsDefs;
 
 import desktop.fragments.AddedtoYourShoppingCartForm;
-import desktop.pages.MainPage;
 import desktop.pages.OrderDetailsPage;
 import desktop.pages.RegisterPage;
-import desktop.pages.SearchResultsPage;
 import io.cucumber.java.en.And;
-import io.cucumber.java.en.Given;
-import org.assertj.core.api.SoftAssertions;
-import org.junit.Before;
-import org.junit.Test;
 import org.junit.jupiter.api.Assertions;
 
-import java.util.List;
 import java.util.Map;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;

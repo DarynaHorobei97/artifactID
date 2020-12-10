@@ -1,5 +1,4 @@
 package stepsDefs;
-
 import desktop.pages.ShipmentAndPickUpLocationPage;
 import io.cucumber.java.en.And;
 import org.junit.jupiter.api.Assertions;
